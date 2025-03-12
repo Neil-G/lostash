@@ -1,0 +1,36 @@
+{
+  "name": "lostash",
+  "version": "1.0.0",
+  "description": "An enhanced version of `useState` with additional utilities for common state management patterns.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "useState",
+    "lodash"
+  ],
+  "author": "neil-g",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "lodash.isequal": "^4.5.0",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.0.7",
+    "iconv-lite": "^0.6.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^26.0.0",
+    "react-dom": "^19.0.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.8.2"
+  }
+}
