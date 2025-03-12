@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useNumberState } from './useNumberState'; // Adjust the import path if needed
+import { useNumberState } from '..'; // Adjust the import path if needed
 
 describe('useNumberState', () => {
   it('should initialize with default value (0)', () => {

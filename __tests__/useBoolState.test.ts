@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useBoolState } from './useBoolState'; // Adjust the import path if needed
+import { useBoolState } from '..'; // Adjust the import path if needed
 
 describe('useBoolState', () => {
   it('should initialize with default value (false)', () => {

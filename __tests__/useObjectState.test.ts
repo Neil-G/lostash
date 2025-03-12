@@ -1,6 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useObjectState } from './useObjectState';
-import debounce from 'lodash.debounce';
+import { useObjectState } from '..';
 
 jest.mock('lodash.debounce', () =>
   jest.fn((fn) => {

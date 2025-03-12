@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useStringState } from './useStringState'; // Adjust the import path if needed
+import { useStringState } from '..'; // Adjust the import path if needed
 
 describe('useStringState', () => {
   it('should initialize with default value (empty string)', () => {

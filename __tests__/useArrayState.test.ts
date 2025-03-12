@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useArrayState } from './useArrayState'; // Adjust the import path if needed
+import { useArrayState } from '..'; // Adjust the import path if needed
 
 describe('useArrayState', () => {
   it('should initialize with an empty array by default', () => {

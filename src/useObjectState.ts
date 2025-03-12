@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
 
+type DebouncedFunction<T> = ((value: T) => void) & { cancel: () => void };
+
 export interface UseObjectState<T> {
   value: T; // Immediate value
   debouncedValue: T | null; // Debounced value
@@ -22,7 +24,7 @@ export function useObjectState<T>(
     debounceTime > 0 ? initialValue : null
   ); // Debounced value only if debounceTime > 0
 
-  const debouncedSet = useRef<ReturnType<typeof debounce<T, []>>>(null as any);
+  const debouncedSet = useRef<DebouncedFunction<T> | null>(null);
 
   useEffect(() => {
     if (debounceTime > 0) {

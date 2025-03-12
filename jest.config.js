@@ -6,6 +6,6 @@ module.exports = {
     "^.+.tsx?$": ["ts-jest",{}],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  testMatch: ['**/*.test.ts'], // Match test files
+  testMatch: ["**/__tests__/**/*.test.ts", "**/__tests__/**/*.test.tsx"],
   transformIgnorePatterns: ['/node_modules/'], // Ignore transformation of node_modules
 };
