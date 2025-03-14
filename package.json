@@ -1,6 +1,6 @@
 {
   "name": "lostash",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "An enhanced version of `useState` with additional utilities for common state management patterns.",
   "main": "index.js",
   "scripts": {
