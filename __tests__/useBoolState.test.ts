@@ -91,4 +91,54 @@ describe('useBoolState', () => {
 
     expect(result.current.value).toBe(false);
   });
+
+  it('should initialize with default props values', () => {
+    const { result } = renderHook(() =>
+      useBoolState(false, {
+        props: {
+          buttonLabel: ['On', 'Off'],
+          className: ['btn-on', 'btn-off'],
+        },
+      })
+    );
+
+    expect(result.current.props.buttonLabel).toBe('Off');
+    expect(result.current.props.className).toBe('btn-off');
+  });
+
+  it('should update props values when state changes', () => {
+    const { result } = renderHook(() =>
+      useBoolState(false, {
+        props: {
+          buttonLabel: ['On', 'Off'],
+          className: ['btn-on', 'btn-off'],
+        },
+      })
+    );
+
+    act(() => {
+      result.current.toggle();
+    });
+
+    expect(result.current.props.buttonLabel).toBe('On');
+    expect(result.current.props.className).toBe('btn-on');
+  });
+
+  it('should handle complex prop structures', () => {
+    const { result } = renderHook(() =>
+      useBoolState(false, {
+        props: {
+          styles: [{ color: 'green' }, { color: 'red' }],
+        },
+      })
+    );
+
+    expect(result.current.props.styles).toEqual({ color: 'red' });
+
+    act(() => {
+      result.current.toggle();
+    });
+
+    expect(result.current.props.styles).toEqual({ color: 'green' });
+  });
 });
