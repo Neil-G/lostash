@@ -23,32 +23,20 @@ pnpm add lostash
 
 ### `useBoolState`
 
-#### Modal Example
-```typescript
-import { useBoolState } from "lostash";
-
-function ModalExample() {
-  const openState = useBoolState();
-  return (
-    <div>
-      <button onClick={openState.setTrue}>Open Modal</button>
-      <Modal isOpen={openState.isTrue} onClose={openState.setFalse} />
-    </div>
-  );
-}
-```
-
 #### Switch Example
-
+[Codesandbox](https://codesandbox.io/p/sandbox/9vwwvm?file=%2Fsrc%2FApp.tsx%3A21%2C1)
 ```typescript
-function ToggleExample() {
-  const checkedState = useBoolState();
+function Switch () {
+  const onState = useBoolState();
   return (
-    <div>
-      <Switch onClick={checkedState.toggle} checked={checkedState.isTrue} />
-    </div>
+    <button
+      className={onState.isTrue ? "button-primary" : ""}
+      onClick={onState.toggle}
+    >
+      {onState.isTrue ? "On" : "Off"}
+    </button>
   );
-}
+};
 ```
 
 ### `useStringState`
@@ -131,8 +119,14 @@ function TodoList() {
 ## API
 
 ### useBoolState
+[Codesandbox](https://codesandbox.io/p/sandbox/9vwwvm?file=%2Fsrc%2FApp.tsx%3A21%2C1)
 ```ts
-useBoolState(initialValue?: boolean): UseBoolState
+useBoolState<Props = {}>(
+  initialValue?: boolean,
+  options?: {
+    props?: [K in keyof Props]: [Props[K], Props[K]];
+  }
+): UseBoolState
 ```
 | Property    | Type       | Description |
 |------------|-----------|-------------|
@@ -144,3 +138,4 @@ useBoolState(initialValue?: boolean): UseBoolState
 | `setFalse` | `() => void` | Sets the state to `false`. |
 | `isTrue`   | `boolean` | A derived boolean indicating if `value` is `true`. |
 | `isFalse`  | `boolean` | A derived boolean indicating if `value` is `false`. |
+| `props`    | `Props`   | An object containing derived properties based on the current boolean state and the props provided in the options parameter. |
